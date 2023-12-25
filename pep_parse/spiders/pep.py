@@ -1,3 +1,5 @@
+from urllib.parse import urljoin
+
 import scrapy
 
 from pep_parse.items import PepParseItem
@@ -13,7 +15,8 @@ class PepSpider(scrapy.Spider):
             'section[id*=numerical-index] tbody tr td a::attr(href)'
         ).getall()
         for pep_link in all_peps:
-            yield response.follow(pep_link, callback=self.parse_pep)
+            next_url = urljoin(response.url, pep_link)
+            yield response.follow(next_url, callback=self.parse_pep)
 
     def parse_pep(self, response):
         data = {
