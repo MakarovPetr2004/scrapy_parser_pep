@@ -18,9 +18,6 @@ scrapy crawl pep
 ## Технологии:
 - Python 3.9
 - Scrapy 2.5.1
-- Pillow 9.0.0
-- DRF 3.12.4
-- Djoser 2.2.0
 
 ## Автор
 * [Макаров Пётр](https://github.com/MakarovPetr2004)
